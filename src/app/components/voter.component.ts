@@ -1,7 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { APP_STORE } from '../store/app-store';
 import { ApplicationState } from '../store/application-state';
-import { VoteActions } from '../store/votes/vote-actions';
+import { voteYesAction, voteNoAction } from '../store/votes/vote-actions';
 import { Store } from 'redux';
 
 @Component({
@@ -32,11 +32,11 @@ export class VoterComponent {
   constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) { }
 
   private increment() {
-    this.store.dispatch({type : VoteActions.YES});
+    this.store.dispatch(voteYesAction());
   }
 
   private decrement() {
-    this.store.dispatch({type : VoteActions.NO});
+    this.store.dispatch(voteNoAction());
   }
 }
 

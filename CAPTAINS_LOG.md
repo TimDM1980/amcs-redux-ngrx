@@ -22,3 +22,9 @@ WARNING in ./src/app/components/status.component.ts
   * we hebben een testje gedaan en een 2e reducer bijgeschreven
   * onze action passeerder ook in deze reducer
   * dwz dat een default path in de switch van een reducer er ALTIJD moet zijn!!!
+
+## Ex 3 Action creators
+
+* Is er een verschil tussen het exporten van een functie of van een const?
+Zie vote-actions.ts...
+
