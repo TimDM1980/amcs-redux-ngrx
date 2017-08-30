@@ -28,3 +28,11 @@ WARNING in ./src/app/components/status.component.ts
 * Is er een verschil tussen het exporten van een functie of van een const?
 Zie vote-actions.ts...
 
+## Ex 4 Middleware
+
+* De uitleg in de slides is niet goed.
+Je kan beter kijken naar de [uitleg van redux zelf](http://redux.js.org/docs/advanced/Middleware.html). Hier wordt het duidelijk waarom next zelf ook nog wordt doorgegeven, nl omdat next niet altijd zal verwijzen naar store.dispatch omdat je een chain van middleware aan het opbouwen bent en next is dus de volgende in de chain.
+
+* Dit riekt naar currying en in de uitleg van redux staat er ook een verwijzing. Redux zal dus onze logger functie oproepen met 3 argumenten: store, next en action. Maar ipv gewoon 3 argumenten mee te geven, is het een cascade van functies die elk 1 argument nemen.
+
+* In de logging zie je de ajuinenschil. De loggings van crashreporter zitten genest in die van logger. Da's ook wel een beetje jammer, zou je het ook kunnen chainen zonder te nesten?
