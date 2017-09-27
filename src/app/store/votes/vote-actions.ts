@@ -1,16 +1,31 @@
+import { VoterService } from "./voter-service";
+
 export const VoteActions = {
-  NO : "NO",
-  YES : "YES"
+  VOTES_LOADED: "LOADED"
 };
 
 export interface Action {
    type : any;
+   counter ?: number;
+   service ?: VoterService;
 }
 
-export function voteYesAction() : Action {
-  return {type : VoteActions.YES}
+export function votesLoadedAction(counter:number):Action {
+  return { type : VoteActions.VOTES_LOADED, counter };
 }
 
-export const voteNoAction = function() : Action {
-  return {type : VoteActions.NO};
+export function voteYesAction(service:VoterService) {
+  return (dispatch, getState) => {		
+    service.addVote().subscribe(counter => {
+      dispatch(votesLoadedAction(counter));
+    });
+  };
+}
+
+export function voteNoAction(service:VoterService) {
+  return (dispatch, getState) => {
+    service.removeVote().subscribe(counter => {
+      dispatch(votesLoadedAction(counter));
+    });
+  };
 }

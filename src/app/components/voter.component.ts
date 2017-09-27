@@ -3,6 +3,7 @@ import { APP_STORE } from '../store/app-store';
 import { ApplicationState } from '../store/application-state';
 import { voteYesAction, voteNoAction } from '../store/votes/vote-actions';
 import { Store } from 'redux';
+import { VoterService } from "../store/votes/voter-service";
 
 @Component({
   selector: 'trm-voter',
@@ -29,14 +30,14 @@ export class VoterComponent {
   /**
    * Inject the appstore
    */
-  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) { }
+  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>, private voterService : VoterService) { }
 
   private increment() {
-    this.store.dispatch(voteYesAction());
+    this.store.dispatch(voteYesAction(this.voterService));
   }
 
   private decrement() {
-    this.store.dispatch(voteNoAction());
+    this.store.dispatch(voteNoAction(this.voterService));
   }
 }
 

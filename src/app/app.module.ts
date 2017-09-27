@@ -12,6 +12,7 @@ import { AppComponent } from "./app.component";
 import { DashboardComponent } from "./components/dashboard.component";
 import { VoterComponent } from "./components/voter.component";
 import { StatusComponent } from "./components/status.component";
+import { VoterService } from "./store/votes/voter-service";
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { StatusComponent } from "./components/status.component";
     StatusComponent
   ],
   providers: [
-    { provide: APP_STORE, useFactory: appStoreFactory }
+    { provide: APP_STORE, useFactory: appStoreFactory },
+    VoterService,
   ],
   bootstrap: [AppComponent]
 })
