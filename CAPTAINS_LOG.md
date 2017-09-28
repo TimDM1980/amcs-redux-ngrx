@@ -36,3 +36,8 @@ Je kan beter kijken naar de [uitleg van redux zelf](http://redux.js.org/docs/adv
 * Dit riekt naar currying en in de uitleg van redux staat er ook een verwijzing. Redux zal dus onze logger functie oproepen met 3 argumenten: store, next en action. Maar ipv gewoon 3 argumenten mee te geven, is het een cascade van functies die elk 1 argument nemen.
 
 * In de logging zie je de ajuinenschil. De loggings van crashreporter zitten genest in die van logger. Da's ook wel een beetje jammer, zou je het ook kunnen chainen zonder te nesten?
+
+## Ex 5 Thunk Middleware
+
+* De action interface bevat ook een placeholder voor service. Waarom is dat nodig?
+* In de solutions gaan ze nog een stap verder met `phased actions`. Iemand dit bekeken?
